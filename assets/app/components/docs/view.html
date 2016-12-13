@@ -1,0 +1,437 @@
+
+
+<div class="docs">
+       <div  ng-class="{'mobile-menu':isMobile}">
+                   <div  id="mobileMenu" ng-click="showMenu()">
+                            
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                              
+                         </div>
+            <div class="docs-menu">
+                  <img class="kepler-logo" src="dist/kepler/logo.png">
+                  <ul>
+                        <li ng-repeat="content in tableOfContents">
+                              <a href="#" ng-click="scrollToContent($event,content)">  {{content.text}}</a>
+                        </li>
+                  </ul>
+
+                  <button class="button-primary" ui-sref="start">Back to main page</button>
+                 
+      </div>
+            </div>
+            <div id="scrollTop">
+                  <a href="#" ng-click="scrollTop($event)">Go to top</a>
+            </div>
+      <div class="row">
+           
+           
+
+            <div class="twelve columns">
+                  <div class="section">
+                        <div class="container">
+
+
+                              <h1 class="section-heading">Kepler Architecture Docs</h1>
+                              <p class="section-description">Kepler is an easy way to get started in Front End development with best practices.</p>
+
+                              <div id="intro">
+                                    <h1>Introduction</h1>
+                                    <p>
+                                          In front end development, there is a lot of great tools and frameworks available. During last year, we had been working with
+                                          some of them.
+                                    </p>
+                                    <p>
+                                          In the beginning we choose one of the hottest framework in 2015 (AngularJS) but right now we have a huge web app with more
+                                          than 200 controllers (and counting) none of them have a single unit test (our fault).
+                                          We’re worried about the front end code size which is right now in one single file
+                                          as globals modules.
+                                          <p>
+                                                We would like to have a dynamic component loading strategy (only the views are loaded on demand when using the dialog component).
+                                                The software is working great, we support a local airline daily operations,
+                                                the team is now mature in angular knowledge, everyone knows how the code
+                                                is structured and we have a working continuous integration strategy. But,
+                                                we feel that we can be doing a better job, we found many tasks that are candidates
+                                                for automation and we created some useful tasks using gulp , which is a great
+                                                tool.
+                                          </p>
+                                          <p>
+                                                We use gulp for our development, and we have some extra tasks for our CI tool (Jenkins) We built our software modular, using
+                                                angular directives, but we wanted to use a more simpler approach: components;
+                                                They’re available since angular 1.5 with a more simpler syntax.
+
+                                                <p>
+                                                      You can read more about Angular components here:
+
+
+                                                      <a href="https://docs.angularjs.org/guide/component" target="_blank">
+https://docs.angularjs.org/guide/component
+</a>
+                                                </p>
+                                                <p id="advantages">
+                                                      <h3>Advantages of Components:</h3>
+
+                                                      <ul>
+                                                            <li>simpler configuration than plain directives</li>
+                                                            <li>promote sane defaults and best practices</li>
+                                                            <li>optimized for component-based architecture</li>
+                                                            <li>writing component directives will make it easier to upgrade to
+                                                                  Angular 2</li>
+                                                      </ul>
+                                                      <p>
+                                                            We don’t use the component communication system in angular components (inputs and outputs), you will find our approach in
+                                                            the component communication section. Despite the improvements,
+                                                            we feel that we’re learning angular specific things, and for
+                                                            the newcomers the learning curve was very hard at the beginning.
+                                                            We created many components that help us to improve this part
+                                                            and now everyone works the same way.
+                                                      </p>
+
+                                                </p>
+                              </div>
+
+                              <div id="angular2">
+                                    <h2>What about Angular 2 ?</h2>
+                                    <p>
+                                          Sometime ago, we started to hear about angular 2, but we don’t feel we’re ready for that yet. Checkout the thoughtworks technology
+                                          radar and you’ll find something interesting, in the language and tools, angular
+                                          is on “hold” radar, that means, “proceed with caution”. To me, this is very important,
+                                          thoughtworks have many smart people and I trust them.
+
+
+                                    </p>
+
+                                    <img src="dist/kepler/radar.png" />
+                                    <blockquote cite="https://www.thoughtworks.com/radar/languages-and-frameworks">
+                                          <p>
+                                                “AngularJS helped revolutionize the world of singlepage JavaScript applications, and we have delivered many projects successfully
+                                                with it over the years. However, we are no longer recommending it (v1) for
+                                                teams starting fresh projects. We prefer the ramp-up speed and more maintainable
+                                                codebases we are seeing with Ember and React, particularly in conjunction
+                                                with Redux.”
+                                          </p>
+                                    </blockquote>
+                              </div>
+
+                              <div id="journey">
+
+                                    <p>
+                                          We would like to give a try to EmberJS and React in the near future, but right now we have to support a software we created
+                                          one year ago in Angular 1.x. To be honest, we don’t have migration plans to Angular
+                                          2. For this reason we created a Front end workflow that we call KeplerJS, this
+                                          isn’t a new framework or library, this is only our approach following some key
+                                          principles at the beginning: Key principles Component oriented architecture Dynamic
+                                          component loading Dynamic injection Component communication Help companies using
+                                          Angular 1.x to have a better and strong workflow Automation tasks Use ES2015 or
+                                          future versions TDD strong focus Future plans: Adapt this architecture to other
+                                          popular javascript frameworks
+                                    </p>
+                              </div>
+
+                              <h2>Introducing Kepler workflow</h2>
+                              <div id="architecture">
+
+                                    <p>
+
+
+                                          KeplerJS is the name of the front end workflow we’re working on, we would like to share this project with the community and
+                                          improve it every day.
+
+
+                                          <h3>Component oriented architecture</h3>
+
+
+                                          Following our key principles, everything starts with a component, right now many of the logic is built using angular, but
+                                          we think this can be adapted to other frameworks and libraries. Each component
+                                          should live in his own folder, just inside the components folder, we follow a convention
+                                          over configuration philosophy, with this we can get the work done more quickly
+                                          in the setup.
+
+                                    </p>
+                                    <p>
+                                          Folder structure of a component:
+
+
+
+                                    </p>
+
+
+                                    <img src="dist/kepler/structure.png" />
+                                    <p>
+                                          From the previous image we can find:
+
+                                    </p>
+                                    <ul>
+                                          <li>A unique folder with the component name
+                                                <li>component.js : It contains the angular specific code for the controller,
+                                                      the component manifest and the dependencies.
+                                                      <li>controller.js: Framework agnostic code, representing the controller
+                                                            logic, this is imported in the component.js file.
+                                                            <li>service.js: a factory that represents the component service calls.
+                                                                  <li>spec.js: It contains the component controller unit tests.
+                                                                        <li>specRunner.js: HTML reporter for the unit test (using
+                                                                              jasmine)
+                                                                              <li>style.less: CSS file for the component
+                                                                                    <li>view.html: Represents the component view.
+                                    </ul>
+
+                                    The style.less and service.js files are optional.
+                                    </p>
+
+                                    <h2>Component definition</h2>
+
+                                    <p>
+                                          Each component should extends Component class
+                                    </p>
+                                    <img src="dist/kepler/component-diagram.png" />
+                                    <p>
+
+
+
+
+                                          Each component is directly associated to a route, this route can be nested or isolated. A component can be rendered directly
+                                          inside another component view. By default, each component route is registered in
+                                          routes.json, you can get this routes from a database too. Each route is an object
+                                          with the following properties: name, url, path, state
+                                    </p>
+                                    <img src="dist/kepler/component-route.png" />
+                                    <p>
+
+
+                                          If you need a component to render inside another component view from the routes, you can add it to the state property, this
+                                          is achieved through the state name of the “parent” component followed by the component
+                                          own state, example:
+                                    </p>
+                                    <p>
+
+                                          state for component 1: state1 state for component 2: state1.state2
+
+                                    </p>
+                                    <p>
+                                          To load component 2 you navigate to /state1/state2 Now you will see both components on the page.
+
+
+                                    </p>
+                              </div>
+
+                              <div id="loading">
+                                    <h1>Dynamic component loading</h1>
+
+                                    <p>
+                                          You can load components in two ways:
+
+                                          <ul>
+                                                <li>Component tag</li>
+                                                <li>URL matching</li>
+                                          </ul>
+
+
+                                          <h3>Component tag</h3>
+
+
+                                    </p>
+                                    <p>
+                                          You can load any component inside another component view using oclazyload: The component task will create for you the code
+                                          inside the component.js file if you want to use this mechanism: In this example
+                                          componentBoard is the component name you want to load.
+                                    </p>
+                                    <img src="dist/kepler/component-load.png" />
+                                    <p>
+                                          Read more at <a href="https://oclazyload.readme.io/" target="_blank">
+                                                https://oclazyload.readme.io/
+                                                </a>
+                                    </p>
+                                    <h3>Url matching</h3>
+                                    <p>
+
+                                          You can load any component navigating to the component route, kepler will resolve all the dependencies and register the component
+                                          in your angular app. We’re using ui-router project here. View more at
+                                          <a href="https://ui-router.github.io/ng1" target="_blank">
+
+                                                https://ui-router.github.io/ng1
+                                                </a>
+
+
+
+                                    </p>
+
+                              </div>
+
+                              <div id="injection">
+                                    <h1> Dynamic injection </h1>
+
+                                    <p>You can inject any dependency to any components dynamically, this dependency should extend
+                                          the Factory class in order to be injected inside the component controller. You
+                                          should create a new instance of this factory inside the injectDependencies method
+                                          created in the component.js file. Service injection example:
+
+
+                                    </p>
+                                    <p>
+                                          1) Import the service:
+
+                                    </p>
+                                      <img src="dist/kepler/import-service.png" />
+                                    <p>
+                                          2) Create service instance inside injectDependecies method
+
+                                    </p>
+                                      <img src="dist/kepler/inject-component.png" />
+                                    <p>
+                                          3) Inside your component controller inject the service: You can use the factory now inside your controller.
+
+                                    </p>
+  <img src="dist/kepler/inject-service.png" />
+
+                                    </p>
+                              </div>
+
+                              <div id="communication">
+                                    <h1>Component communication</h1>
+                                    <p>
+                                          We choose the PubSub pattern for communication between components, it’s more easy and less angular specific. “publish–subscribe
+                                          is a messaging pattern where senders of messages, called publishers, do not program
+                                          the messages to be sent directly to specific receivers, called subscribers, but
+                                          instead characterize published messages into classes without knowledge of which
+                                          subscribers, if any, there may be. Similarly, subscribers express interest in one
+                                          or more classes and only receive messages that are of interest, without knowledge
+                                          of which publishers, if any, there are.” Source: <a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern" target="_blank">
+                                         
+                                        See wikipedia
+                                          </a>
+                                         
+
+
+
+
+
+                                                We use PubSub library from georapbox
+                                               <a href="https://github.com/georapbox/angular-PubSub" target="_blank">
+                                               
+                                               https://github.com/georapbox/angular-PubSub
+                                               </a>
+</p><p>
+                                                      Each component controller injects the PubSub module, and by default publish the Loaded event. Other components can “listen”
+                                                      that event using the subscribe method. You can send and receive data
+                                                      in the publish and subscribe methods.
+
+                                                       
+
+
+                                    </p>
+                                     <img src="dist/kepler/publish-event.png" />
+
+                              </div>
+
+                              <div id="better">
+                                    <h1> Better and Strong workflow for companies using angular 1.x</h1>
+
+                                    <p>
+                                          You should read this great article
+                                          <a href="https://daveceddia.com/angular-2-should-you-upgrade/" target="_blank">
+                                          https://daveceddia.com/angular-2-should-you-upgrade/
+                                          </a> Most companies can’t just upgrade to Angular 2, it’s like a new learning curve,
+                                          the docs are mainly in typescript, and you have to re-learn new things, I love
+                                          learning new things, but that doesn’t mean you have to upgrade always to the newest
+                                          version ( if that means you have to learn again and you know that your current
+                                          code will not work), we would like to try another libraries and frameworks, but
+                                          the business should continue improving our current software, we have to develop
+                                          and maintain current modules, that’s why we wanted to create this workflow and
+                                          do the best we can with Angular 1.x We think other companies using Angular 1.x
+                                          may find this workflow helpful and why not, improve it! For now (2016 year), don’t
+                                          use Angular for fresh projects yet. Let’s wait what happens with Angular 2 future,
+                                          give a try to other libraries like React + Flux or EmberJS
+                                          <a href="https://www.thoughtworks.com/radar/languages-and-frameworks/react-js" target="_blank">
+                                          https://www.thoughtworks.com/radar/languages-and-frameworks/react-js
+                                          </a>
+
+
+                                                We hope to have Kepler adapted to other libraries like React and Ember, it’s a matter of time. (Even better, a day we don’t
+                                                need something like this and dealing with just another framework hell)
+
+
+                                    </p>
+                              </div>
+
+                              <div id="automate">
+                                    <h1>Automation tasks</h1>
+
+                                    <p>We want developers creating components faster, we know there’s a great tool called yeoman,
+                                          with angular generators, but since, we have a more complete workflow in order to
+                                          get things done, we have a simple gulp task that allow us to create components
+                                          quickly: 
+                                          
+                                          </p><p>
+                                               <pre> <code>
+                                          >> gulp component --name=componentName --style --service 
+                                          
+                                          </code></pre>
+                                          </p><p>
+                                          This will create
+                                          a new component with a custom service and style in less --style and --service arguments
+                                          are optional. By default the component route will be the component name, you can
+                                          change it using --state argument.
+                                    </p>
+
+                              </div>
+                              <div id="es2015">
+
+                                    <h1>
+
+                                          Use ES2015 or later
+                                    </h1>
+
+                                    <p>
+
+                                          We always wanted to create javascript code in ES2015, kepler will allow you to this and use any module loader syntax like AMD, CommonJS.
+
+
+You can use class, extends, arrow function, string interpolation powered by babelJS <a href="https://babeljs.io/">https://babeljs.io/</a>
+
+</p><p>
+A kepler controller looks like:
+ </p>
+   <img src="dist/kepler/controller.png" />
+
+                                    </p>
+                                    </div>
+
+                              <div id="tdd">
+                                    <h1>TDD Strong focus</h1>
+
+                                    <p>
+                                          We had seen TDD benefits on our service layer using c#. We wanted to have the same on javascript. For now, we support Jasmine,
+                                          a Behaviour Driven Javascript library
+                                          <https://jasmine.github.io/> Each component controller have a default spec file with two test functions. Once
+                                          your component is created you can navigate to the components view (Kepler will
+                                          create a default view for the component like this one) You can execute the tests
+                                          navigating to specs/[ComponentName]/specRunner.html You will see the test results
+                                          from the jasmine report. Indeed, we have a component called ComponentBoard, this
+                                          list all the kepler components you have on your project:
+
+
+                                    </p>
+                              </div>
+
+ <div class="test-container">
+      
+      <a href="specs/docs/specRunner.html" target="_blank">
+      Test this component
+      </a>
+      <a class="jasmine-icon" href="http://jasmine.github.io/" target="_blank"></a>
+      <br />
+      <a href="https://jasmine.github.io/" target="_blank">Learn more about jasmine!</a>
+
+               
+</div>
+
+                        </div>
+                  </div>
+            </div>
+            
+      </div>
+      
+</div>
+</div>
+

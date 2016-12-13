@@ -1,0 +1,150 @@
+//Place any specific component style here
+[data-component="miniPlayer"]
+{
+  background-color: linear-gradient(120deg,#131313  25%,#673AB7 85%);
+  background: linear-gradient(120deg,#131313  25%,#673AB7 85%);
+  height: auto;
+}
+
+.miniPlayer
+{
+
+   
+    padding: 0;
+    margin: 0;
+
+
+    md-slider.md-default-theme .md-thumb:after, md-slider .md-thumb:after
+    {
+       border-color: rgb(43, 199, 70);
+       background-color: rgb(43, 199, 70);
+    }
+
+    md-slider.md-default-theme .md-track.md-track-fill, md-slider .md-track.md-track-fill
+    {
+        background-color: rgb(43, 199, 70);
+    }
+    
+
+    .cover-container
+    {
+       
+        margin: 10px;
+        position: relative;
+    
+    }
+   
+   .album
+   {
+
+     p
+     {
+        font-weight: bold;
+        margin-top: 10px;
+        border-bottom: solid 5px #0dde3a;
+        padding: 10px;
+        font-size: 20px;
+        color: #fff;
+     }
+
+    .album-cover
+    {
+        background-repeat: no-repeat;
+        height: 298px;
+        width: 300px;
+        background-size: cover;
+        box-shadow: 1px 3px 10px 0px #222;
+        margin: 0 auto;
+        position: relative;
+        box-shadow: 2px 8px 12px 0px #000;
+    }
+
+    
+
+    .tracks
+    {
+        list-style: none;
+
+        li{
+
+            position: relative;
+            font-size: 15px;
+            border-bottom: dashed 1px #607D8B;
+            color: #fff;
+        }
+    }
+
+
+    .button-playing
+    {
+        background-color: #5e2bc7!important;
+    }
+
+    .get-tracks-button
+    {
+        position: absolute;
+        bottom: 24px;
+        z-index: 5;
+        left: 30%;
+        box-shadow: 2px 2px 7px 2px #222;
+    }
+
+    .play-button
+    {
+        border-radius: 50px;
+    }
+
+    .volumen
+    {
+        position: absolute;
+        bottom: -59px;
+        width: 300px;
+    }
+
+    .progress-bar
+    {
+        height: 15px;
+        background-color: #673AB7;
+        padding: 4px;
+        margin-bottom: 10px;
+        width: 292px;
+        bottom: -34px;
+        position: absolute;
+
+        .progress
+        {
+            border-radius: 40px;
+            height: 7px;
+            padding-top: 4px;
+            position: absolute;
+            top: 6px;
+            background-color: #2bc746;
+            background: -webkit-linear-gradient(#2bc746,#11dfc7);
+            background: linear-gradient(#2bc746,#11dfc7);
+            overflow: hidden;
+        }
+    }
+
+   }
+
+    @media (max-width: 800px) {
+
+        img
+        {
+            max-width: 150px;
+        }
+    }
+
+      
+}
+
+ @media (min-width: 500px) and (max-width: 1200px) {
+
+      .miniPlayer .album .album-cover
+      {
+        width: 180px;
+        height: 180px;
+      }
+}
+
+

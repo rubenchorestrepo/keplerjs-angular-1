@@ -1,0 +1,49 @@
+<div class="miniPlayer">
+      
+   
+      <div class="album row container">
+           
+                  <div class="four columns">
+                        <div class="cover-container">
+                             
+                              <div class="album-cover" style="background-image:url({{album.poster}})">
+                                    <div class="progress-bar" ng-show="album.playingSong">
+                                          <div class="progress" style="width:{{album.counter}}px">
+                                          </div>
+                                    </div>
+                                    <div class="volumen" ng-show="album.playingSong">
+
+                                          <md-slider ng-model="volume" min="0" step="0.1" max="1" aria-label="volume" id="volume-slider" class="md-accent"
+                                                md-range></md-slider>
+                                    </div>
+                              </div>
+                              
+
+                        </div>
+                  </div>
+                  <div class="eight columns">
+                         <p><a class="button button-primary" ng-click="back()">Back</a> {{album.name}}    </p>
+                      
+                         <ul class="tracks">
+                  <li ng-repeat="track in album.tracks" ng-class="{'playing':track.playingSong}" class="row">
+
+
+                        <span class="ten columns">  {{track.name}}</span>
+                        <span class="one column">
+                        <a class="button button-primary demo-button play-button" ng-class="{'button-playing':track.playingSong}" ng-click="playTrack($event,album,track)">
+                              <span ng-show="track.playingSong">stop</span>
+                        <span ng-hide="track.playingSong">play</span>
+
+                        </a>
+                        </span>
+
+                  </li>
+            </ul>
+                  </div>
+          
+
+           
+      </div>
+
+    
+</div>

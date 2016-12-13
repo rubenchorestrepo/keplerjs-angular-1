@@ -1,0 +1,130 @@
+//Place any specific component style here
+[data-component="spotify"]
+{
+  background-color: linear-gradient(120deg,#131313  25%,#673AB7 85%);
+  background: linear-gradient(120deg,#131313  25%,#673AB7 85%);
+  height: auto;
+  color:#fff;
+
+  input[type=email], input[type=text], input[type=tel], input[type=url], input[type=password], input[type=number], input[type=search], select, textarea
+  {
+      color: #000;
+  }
+  
+}
+
+
+.spotify
+{
+   .album
+   {
+        margin: 10px;
+        position: relative;
+        width: 300px;
+
+     p{
+
+        font-weight: bold;
+        margin-top: 10px;
+        border-bottom: solid 5px #0dde3a;
+     }
+     
+   
+    .album-cover
+    {
+        background-repeat: no-repeat;
+        height: 298px;
+        width: 300px;
+        background-size: cover;
+
+      
+    }
+
+    .tracks
+    {
+
+        list-style: none;
+
+        li{
+           
+            padding: 5px;
+            position: relative;
+            border-bottom: dashed 1px #607D8B;
+        }
+    }
+
+    .playing
+    {
+        
+        background-color: #460a75!important;
+        color: #fff;
+    }
+
+    .button-playing
+    {
+        background-color: #5e2bc7!important;
+    }
+
+
+
+    .get-tracks-button
+    {
+        position: absolute;
+        bottom: 24px;
+        z-index: 5;
+        left: 30%;
+        box-shadow: 2px 2px 7px 2px #222;
+    }
+
+    .play-button
+    {
+        border-radius: 50px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .progress-bar
+    {
+        height: 15px;
+        background-color: #666;
+        padding: 4px;
+        position: fixed;
+        top: 0;
+        z-index: 800;
+        left: 0;
+        width: 100%;
+
+        .progress
+        {
+            border-radius: 40px;
+            height: 7px;
+            padding-top: 4px;
+            position: absolute;
+            top: 6px;
+            background-color: #2bc746;
+            background: -webkit-linear-gradient(#2bc746,#11dfc7);
+            background: linear-gradient(#2bc746,#11dfc7);
+            overflow: hidden;
+        }
+    }
+
+   }
+
+    @media (max-width: 800px) {
+
+        img
+        {
+            max-width: 150px;
+        }
+    }
+
+}
+
+.test-container
+{
+        width: 300px;
+        margin: 0 auto;
+}
+
+ 
