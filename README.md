@@ -4,6 +4,8 @@
 
 Project docs under construction, but if you want to get started just type npm install and run gulp
 
+Read paper [Absolute README link](http://kepler.metacode.com.co/FrontEndWorkflowforLargeEnterpriseWebApps.pdf) 
+
 /*
 MIT License
 
