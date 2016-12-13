@@ -1,6 +1,9 @@
 
 
 ![alt tag](http://kepler.metacode.com.co/dist/kepler/home.png)
+
+Project docs under construction, but if you want to get started just type npm install and run gulp
+
 /*
 MIT License
 
